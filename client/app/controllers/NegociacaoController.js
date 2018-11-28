@@ -12,15 +12,17 @@ class NegociacaoController{
 
     adiciona (event){
         event.preventDefault();
-        let data = new Date(this._inputData.value.split('-'));
-        console.log(data);
+        
+
+        let data = DateConverter.paraData(this._inputData.value);
+       
         let negociacao = new Negociacao(
             data,
             parseInt(this._inputQuantidade.value),
             parseFloat(this._inputValor.value)
         )
-            
-      //  console.log(negociacao);
+
+        console.log(DateConverter.paraTexto(negociacao.data));
         this.limpaFormulario();
     
     }
